@@ -25,14 +25,12 @@ writes the HTML data from each of those URLs into a zip file.
 monthDictionary = {"Jan":"01", "Feb":"02", "Mar":"03", "Apr":"04", "May":"05","Jun":"06",
                    "Jul":"07", "Aug":"08", "Sep":"09", "Oct":"10", "Nov":"11", "Dec":"12"}
 
-
+#Set i and while condition based on what data has not already been parsed. 
 i = 2
 while i < 3:
-#while i < 10:
     htmlZipFile = zipfile.ZipFile("HTMLZipFile.zip", mode = "a")
     for j in range(3):
         mainURL = "/web/*/http://www.okcupid.com/profile?tuid=" + str(i) + str(j) + "*"
-        #mainURL = "/web/*/http://www.okcupid.com/profile?tuid=14361*"
         urlsList = []
         dupList = []
         prefixURL = "http://web.archive.org"
@@ -81,7 +79,7 @@ while i < 3:
                 htmlFile.write(urlopen(url[0]).read())
                 htmlFile.close()
             except (HTTPError, ValueError, IOError, RuntimeError, TypeError, NameError) :
-                htmlFile. close()
+                htmlFile.close()
             htmlZipFile.write("okcFinalData" + str(i) + "-" + str(k) + "-" + year + ".txt")
             k += 1
             
