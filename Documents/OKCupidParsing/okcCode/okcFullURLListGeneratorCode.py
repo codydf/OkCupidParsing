@@ -1,10 +1,8 @@
-#import urllib2
 from okc_functions import soupify, yearParser
 from urllib2 import urlopen
-#from lxml import etree
 from bs4 import BeautifulSoup
 import zipfile, zlib
-#import zlib
+
 
 '''
 This code generates a list of all possible profile URLs from the Wayback Machine and
@@ -16,9 +14,8 @@ monthDictionary = {"Jan":"01", "Feb":"02", "Mar":"03", "Apr":"04", "May":"05", "
 htmlZipFile = zipfile.ZipFile("HTMLZipFile.zip", mode = "a")
 i = 3
 while i < 5:
-#while i < 10: 
+ 
     mainURL = "/web/*/http://www.okcupid.com/profile?tuid=" + str(i) + "*"
-    #mainURL = "/web/*/http://www.okcupid.com/profile?tuid=14361*"
     urlsList = []
     dupList = []
     prefixURL = "http://web.archive.org"
@@ -72,4 +69,3 @@ htmlZipFile.close()
     
 
 print "URL List Generated!"
-#print i
